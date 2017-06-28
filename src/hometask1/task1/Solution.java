@@ -21,7 +21,7 @@ public class Solution {
         listOfNumbers.set(firstMinIndex, Collections.max(listOfNumbers));
         int secondMinIndex = findMinIndex(listOfNumbers);
 
-        System.out.println(firstMinIndex - secondMinIndex);
+        System.out.println(Math.abs(firstMinIndex - secondMinIndex));
     }
 
     public static int findMinIndex(List<Integer> list) {
