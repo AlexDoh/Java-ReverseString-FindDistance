@@ -1,4 +1,4 @@
-package hometask1.task2;
+package com.odmytrenko.reversestring;
 
 import java.io.BufferedReader;
 import java.io.IOException;

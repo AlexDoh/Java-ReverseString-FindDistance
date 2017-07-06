@@ -1,4 +1,4 @@
-package hometask1.task1;
+package com.odmytrenko.findmindistance;
 
 import java.io.BufferedReader;
 import java.io.IOException;
