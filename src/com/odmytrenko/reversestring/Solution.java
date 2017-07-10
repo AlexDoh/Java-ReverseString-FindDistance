@@ -13,7 +13,11 @@ public class Solution {
 
     public static void printReversedString(String word) {
         for (int i = word.length() - 1; i >= 0; i--) {
-            System.out.print(word.charAt(i));
+            if(word.charAt(i) != ' ') {
+                System.out.print(word.charAt(i));
+            } else {
+                System.out.println();
+            }
         }
     }
 }

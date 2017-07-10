@@ -3,32 +3,26 @@ package com.odmytrenko.findmindistance;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 
 public class Solution {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String[] stringArrayOfNumbers = reader.readLine().split(" ");
-        List<Integer> listOfNumbers = new ArrayList<>();
-        for(String s : stringArrayOfNumbers) {
-            listOfNumbers.add(Integer.parseInt(s));
-        }
+        int[] arrayOfNumbers = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        int firstMinIndex = findMinIndex(listOfNumbers);
-        listOfNumbers.set(firstMinIndex, Collections.max(listOfNumbers));
-        int secondMinIndex = findMinIndex(listOfNumbers);
+        int firstMinIndex = findMinIndex(arrayOfNumbers);
+        arrayOfNumbers[firstMinIndex] = Integer.MAX_VALUE;
+        int secondMinIndex = findMinIndex(arrayOfNumbers);
 
         System.out.println(Math.abs(firstMinIndex - secondMinIndex));
     }
 
-    public static int findMinIndex(List<Integer> list) {
-        int minIndex = list.indexOf(list.get(0));
-        for (int i = 1; i < list.size(); i++) {
-            if (list.get(i) < list.get(minIndex)) {
-                minIndex = list.indexOf(list.get(i));
+    public static int findMinIndex(int[] array) {
+        int minIndex = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[minIndex]) {
+                minIndex = i;
             }
         }
         return minIndex;
